@@ -1,29 +1,51 @@
 body {
-    background-color: turquoise;
+    background-color: white;
 }
 
 h1 {
-    margin-top: 50px;
-    margin-left: 50px;
+    display: flex;
+    margin-top: 50;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    width: 250px;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: bisque;
+    background-color: white;
     margin-top: 50px;
-    position: sticky;
+    margin-left: 250px;
+    margin-right: 210px;
+    position: absolute;
     top: 50;
+    padding: 0%;
+    position: relative;
 }
 
 nav {
     display: flex;
-    gap: 120px
+    align-items: center;
+    justify-content: space-around;
 }
 
 .vertical {
-    background-color: blue;
+    position: absolute;
+    background-color: lightgrey;
     height: 100%;
-    width: 200px;
+    width: 250px;
+    top: 0;
+    left: 0;
+}
+
+button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 25%;
+    width: 120px;
+    height: 50px;
+    font-size: 15px;
+    color: black;
 }
