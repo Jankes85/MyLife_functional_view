@@ -4,16 +4,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wojciech Jankowski</title>
     <link href="{% static 'aboutme/css/intro.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body id="bg" style="background-image: url('{% static 'aboutme/images/background.jpg' %}')";>
-<img id="face" src="{% static 'aboutme/images/face.jpg' %}">
+<div class="phhoto">
+<img id="face" src="{% static 'aboutme/images/face.png' %}">
+    </div>
 <h1>Wojciech Jankowski</h1>
 <h3>Junior Python Developer</h3>
-<button>
-    <a href="{% url 'about_me' %}">Enter</a>
-Enter</button>
+<button class="button">
+    <a href="{% url 'about_me' %}"><button class="button">Enter</button></a>
+</button>
 
 </body>
 </html>

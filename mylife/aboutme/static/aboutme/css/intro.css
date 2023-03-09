@@ -9,24 +9,25 @@
     position: fixed;
     margin-top: 50px;
     margin-left: 90px;
-    width: 320px;
+    max-width: 320px;
+    height:auto;
 }
 
 h1{
     position: fixed;
-    font-size: 85px;
+    font-size: 6vw;
     margin-top: 150px;
     margin-left: 490px;
 }
 
 h3{
     position: fixed;
-    font-size: 50px;
+    font-size: 3vw;
     margin-top: 290px;
     margin-left: 500px;
 }
 
-button {
+.button {
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -37,5 +38,12 @@ button {
     height: 50px;
     font-size: 20px;
     color: black;
-    font-weight: bold
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.button:hover {
+    background-color: darkgrey;
+    color: lightgrey;
 }

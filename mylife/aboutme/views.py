@@ -7,7 +7,7 @@ def intro(request):
     return render(request=request, template_name="aboutme/intro.html")
 
 def about_me(request):
-    return HttpResponse("about me")
+    return render(request=request, template_name="aboutme/aboutme.html")
 
 def education(request):
     return HttpResponse("education")
