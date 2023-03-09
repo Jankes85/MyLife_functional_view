@@ -1,5 +1,8 @@
-body {
-    background-color: white;
+#bg{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -12,7 +15,6 @@ h1 {
 }
 
 header {
-    background-color: white;
     margin-top: 50px;
     margin-left: 250px;
     margin-right: 210px;
@@ -30,22 +32,33 @@ nav {
 
 .vertical {
     position: absolute;
-    background-color: lightgrey;
     height: 100%;
     width: 250px;
     top: 0;
     left: 0;
 }
 
-button {
+.page_name {
+margin-top: 40px;
+}
+
+.button {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 50px;
+    right: 50px;
     background-color: lightgrey;
-    border: none;
+    border: 2px solid white;
     border-radius: 25%;
     width: 120px;
     height: 50px;
-    font-size: 15px;
+    font-size: 20px;
     color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.button:hover {
+    background-color: darkgrey;
+    color: lightgrey;
 }

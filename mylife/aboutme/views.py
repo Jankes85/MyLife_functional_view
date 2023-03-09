@@ -10,14 +10,17 @@ def about_me(request):
     return render(request=request, template_name="aboutme/aboutme.html")
 
 def education(request):
-    return HttpResponse("education")
+    return render(request=request, template_name="aboutme/education.html")
 
 def courses(request):
-    return HttpResponse("education")
+    return render(request=request, template_name="aboutme/courses.html")
 
 def experience(request):
-    return HttpResponse("work experience")
+    return render(request=request, template_name="aboutme/experience.html")
 
 def interests(request):
-    return HttpResponse("my interests")
+    return render(request=request, template_name="aboutme/interests.html")
+
+def blog(request):
+    return render(request=request, template_name="aboutme/blog.html")
 

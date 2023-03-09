@@ -22,5 +22,5 @@ from aboutme.views import intro
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("intro/", intro),
-    path('about/', include('aboutme.urls')),
+    path("about/", include('aboutme.urls')),
 ]

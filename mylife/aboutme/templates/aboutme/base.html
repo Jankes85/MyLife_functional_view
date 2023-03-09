@@ -6,27 +6,33 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width= , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'aboutme/css/style.css' %}" rel="stylesheet" type="text/css">
-    <title>Site title</title>
+    <title> {% block head_title %} Site title {% endblock %}</title>
 </head>
 
-<body>
+<body id="bg" style="background-image: url('{% static 'aboutme/images/background.jpg' %}')";>
+{% block header %}
     <div class="vertical">
-        <h1>Site Title</h1>
+        <h1 class="page_name">Site Title</h1>
     </div>
     <header>
         <nav>
-            <a href="#"> About me </a>
-            <a href="#"> Education </a>
-            <a href="#"> Courses </a>
-            <a href="#"> Work Experiences </a>
-            <a href="#"> Interests </a>
-            <a href="#"> Bolg </a>
+            <a href="{% url 'about_me' %}"> About me </a>
+            <a href="{% url 'education' %}"> Education </a>
+            <a href="{% url 'courses' %}"> Courses </a>
+            <a href="{% url 'experience' %}"> Work Experiences </a>
+            <a href="{% url 'interests' %}"> Interests </a>
+            <a href="{% url 'blog' %}"> Blog </a>
         </nav>
     </header>
-    <button>Download CV</button>
+{% endblock %}
 
+{% block main_content %}
+
+<button class="button">CV</button>
+
+{% endblock %}
 </body>
 
 </html>

@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>About me</h1>
-</body>
-</html>
+{% extends "aboutme/base.html" %}
+
+{% block head_title %} About me {% endblock %}
+{% block header %}
+    <div class="vertical">
+        <h1 class="page_name">About me</h1>
+    </div>
+    <header>
+        <nav>
+            <a href="{% url 'about_me' %}"> About me </a>
+            <a href="{% url 'education' %}"> Education </a>
+            <a href="{% url 'courses' %}"> Courses </a>
+            <a href="{% url 'experience' %}"> Work Experiences </a>
+            <a href="{% url 'interests' %}"> Interests </a>
+            <a href="{% url 'blog' %}"> Blog </a>
+        </nav>
+    </header>
+{% endblock %}
