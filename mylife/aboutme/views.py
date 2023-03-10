@@ -12,8 +12,8 @@ def about_me(request):
 def education(request):
     return render(request=request, template_name="aboutme/education.html")
 
-def courses(request):
-    return render(request=request, template_name="aboutme/courses.html")
+def contact(request):
+    return render(request=request, template_name="aboutme/contact.html")
 
 def skills(request):
     return render(request=request, template_name="aboutme/skills.html")

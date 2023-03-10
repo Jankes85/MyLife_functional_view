@@ -23,7 +23,7 @@ h1 {
 header {
     margin-top: 100px;
     margin-left: 250px;
-    margin-right: 210px;
+    margin-right: 110px;
     position: absolute;
     top: 50;
     padding: 0%;
@@ -47,8 +47,17 @@ nav {
 .page_name {
     margin-top: 45px;
     font-size: 3vw;
+}
+
+#face{
+    margin-top: 50px;
+    margin-left: 15px;
+    max-width: 220px;
+    height:auto;
+    align-items: center;
 
 }
+
 
 .button {
     position: fixed;
@@ -71,3 +80,9 @@ nav {
     color: lightgrey;
 }
 
+footer {
+    position: fixed;
+    font-size: 10px;
+    bottom: 20px;
+    left: 35px;
+}

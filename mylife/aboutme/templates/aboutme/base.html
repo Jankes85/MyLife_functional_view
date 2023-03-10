@@ -18,9 +18,7 @@
 {% block header %}
     <div class="vertical">
         <h1 class="page_name">Site Title</h1>
-    </div>
-<div class="phhoto">
-<img id="face" src="{% static 'aboutme/images/face.png' %}">
+        <img id="face" src="{% static 'aboutme/images/face.png' %}">
     </div>
     <header>
         <nav>
@@ -38,39 +36,32 @@
                     <img src="{% static 'aboutme/images/edu.png' %}" style="width:28px;height:auto;"> Education
                     </button></a>
             </div>
-              <div>
-                <a href="{% url 'courses' %}"><button style="background-color: transparent;
+            <div>
+                 <a href="{% url 'experience' %}"><button style="background-color: transparent;
                 background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
                 font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/courses.png' %}" style="width:27px;height:auto; padding: 2px"> Courses
+                    <img src="{% static 'aboutme/images/work.png' %}" style="width:27px;height:auto; padding: 2px"> Experience
                     </button></a>
             </div>
-             <div>
+            <div>
                  <a href="{% url 'skills' %}"><button style="background-color: transparent;
                 background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
                 font-size: 1.1vw;display:flex;align-items:center">
                     <img src="{% static 'aboutme/images/skills.png' %}" style="width:27px;height:auto; padding: 2px"> Skills
                     </button></a>
             </div>
-            <div>
-                 <a href="{% url 'experience' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/work.png' %}" style="width:27px;height:auto; padding: 2px"> Work Experience
-                    </button></a>
-            </div>
-                        <div>
-                 <a href="{% url 'interests' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/interests.png' %}" style="width:26px;height:auto; padding: 2px"> Interests
-                    </button></a>
-            </div>
-            <div>
+                <div>
                  <a href="{% url 'blog' %}"><button style="background-color: transparent;
                 background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
                 font-size: 1.1vw;display:flex;align-items:center">
                     <img src="{% static 'aboutme/images/blog.png' %}" style="width:25px;height:auto; padding: 2px"> Blog
+                    </button></a>
+            </div>
+                          <div>
+                <a href="{% url 'contact' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/contact.png' %}" style="width:27px;height:auto; padding: 2px"> Contact
                     </button></a>
             </div>
         </nav>
@@ -83,5 +74,9 @@
 
 {% endblock %}
 </body>
-
+{% block footer %}
+<footer>
+    Wojciech Jankowski design © 2023
+</footer>
+{% endblock %}
 </html>
