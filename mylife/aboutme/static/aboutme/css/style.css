@@ -1,3 +1,7 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
 #bg{
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -12,10 +16,12 @@ h1 {
     align-items: center;
     justify-content: space-around;
     width: 250px;
+    text-align: center
+
 }
 
 header {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 250px;
     margin-right: 210px;
     position: absolute;
@@ -39,7 +45,9 @@ nav {
 }
 
 .page_name {
-margin-top: 40px;
+    margin-top: 45px;
+    font-size: 3vw;
+
 }
 
 .button {
@@ -62,3 +70,4 @@ margin-top: 40px;
     background-color: darkgrey;
     color: lightgrey;
 }
+

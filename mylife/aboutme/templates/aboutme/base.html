@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'aboutme/css/style.css' %}" rel="stylesheet" type="text/css">
     <title> {% block head_title %} Site title {% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body id="bg" style="background-image: url('{% static 'aboutme/images/background.jpg' %}')";>
@@ -16,14 +19,60 @@
     <div class="vertical">
         <h1 class="page_name">Site Title</h1>
     </div>
+<div class="phhoto">
+<img id="face" src="{% static 'aboutme/images/face.png' %}">
+    </div>
     <header>
         <nav>
-            <a href="{% url 'about_me' %}"> About me </a>
-            <a href="{% url 'education' %}"> Education </a>
-            <a href="{% url 'courses' %}"> Courses </a>
-            <a href="{% url 'experience' %}"> Work Experiences </a>
-            <a href="{% url 'interests' %}"> Interests </a>
-            <a href="{% url 'blog' %}"> Blog </a>
+            <div>
+                <a href="{% url 'about_me' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/me.png' %}" style="width:29px;height:auto;padding: 2px"> About me
+                </button></a>
+            </div>
+            <div>
+                <a href="{% url 'education' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/edu.png' %}" style="width:28px;height:auto;"> Education
+                    </button></a>
+            </div>
+              <div>
+                <a href="{% url 'courses' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/courses.png' %}" style="width:27px;height:auto; padding: 2px"> Courses
+                    </button></a>
+            </div>
+             <div>
+                 <a href="{% url 'skills' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/skills.png' %}" style="width:27px;height:auto; padding: 2px"> Skills
+                    </button></a>
+            </div>
+            <div>
+                 <a href="{% url 'experience' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/work.png' %}" style="width:27px;height:auto; padding: 2px"> Work Experience
+                    </button></a>
+            </div>
+                        <div>
+                 <a href="{% url 'interests' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/interests.png' %}" style="width:26px;height:auto; padding: 2px"> Interests
+                    </button></a>
+            </div>
+            <div>
+                 <a href="{% url 'blog' %}"><button style="background-color: transparent;
+                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
+                font-size: 1.1vw;display:flex;align-items:center">
+                    <img src="{% static 'aboutme/images/blog.png' %}" style="width:25px;height:auto; padding: 2px"> Blog
+                    </button></a>
+            </div>
         </nav>
     </header>
 {% endblock %}
