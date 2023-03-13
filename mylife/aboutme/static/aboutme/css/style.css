@@ -2,7 +2,7 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
-#bg{
+body {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: top;
@@ -16,7 +16,7 @@ h1 {
     align-items: center;
     justify-content: space-around;
     width: 250px;
-    text-align: center
+    text-align: center;
 
 }
 
@@ -42,6 +42,8 @@ nav {
     width: 250px;
     top: 0;
     left: 0;
+    align-items: center;
+
 }
 
 .page_name {
@@ -50,14 +52,13 @@ nav {
 }
 
 #face{
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 15px;
     max-width: 220px;
     height:auto;
     align-items: center;
 
 }
-
 
 .button {
     position: fixed;
@@ -80,9 +81,24 @@ nav {
     color: lightgrey;
 }
 
+.menu {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 1.1vw;
+    display: flex;
+    align-items: center;
+}
+
 footer {
     position: fixed;
     font-size: 10px;
     bottom: 20px;
-    left: 35px;
+    right: 30px;
+}
+
+.left_menu {
+padding: 20px;
 }

@@ -1,4 +1,8 @@
-#bg{
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: top;
@@ -41,9 +45,17 @@ h3{
     font-weight: bold;
     cursor: pointer;
     transition: all 0.25s;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .button:hover {
     background-color: darkgrey;
     color: lightgrey;
+}
+
+footer {
+    position: fixed;
+    font-size: 10px;
+    bottom: 20px;
+    right: 30px;
 }

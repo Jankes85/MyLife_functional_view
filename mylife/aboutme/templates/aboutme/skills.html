@@ -10,49 +10,6 @@
 
     </div>
     <header>
-        <nav>
-           <div>
-                <a href="{% url 'about_me' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/me.png' %}" style="width:29px;height:auto;padding: 2px"> About me
-                </button></a>
-            </div>
-            <div>
-                <a href="{% url 'education' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/edu.png' %}" style="width:28px;height:auto;"> Education
-                    </button></a>
-            </div>
-            <div>
-                 <a href="{% url 'experience' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/work.png' %}" style="width:27px;height:auto; padding: 2px"> Experience
-                    </button></a>
-            </div>
-            <div>
-                 <a href="{% url 'skills' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/skills.png' %}" style="width:27px;height:auto; padding: 2px"> Skills
-                    </button></a>
-            </div>
-                <div>
-                 <a href="{% url 'blog' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/blog.png' %}" style="width:25px;height:auto; padding: 2px"> Blog
-                    </button></a>
-            </div>
-                          <div>
-                <a href="{% url 'contact' %}"><button style="background-color: transparent;
-                background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline: none;
-                font-size: 1.1vw;display:flex;align-items:center">
-                    <img src="{% static 'aboutme/images/contact.png' %}" style="width:28px;height:auto; padding: 2px"> Contact
-                    </button></a>
-            </div>
-        </nav>
+{% include "aboutme/header_menu.html" %}
     </header>
 {% endblock %}

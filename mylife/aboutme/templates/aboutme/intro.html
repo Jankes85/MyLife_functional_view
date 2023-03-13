@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wojciech Jankowski</title>
     <link href="{% static 'aboutme/css/intro.css' %}" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
-<body id="bg" style="background-image: url('{% static 'aboutme/images/background.jpg' %}')";>
+
+<body style="background-image: url('{% static 'aboutme/images/background.jpg' %}')";>
 <div>
 <img id="face" src="{% static 'aboutme/images/face.png' %}">
     </div>
@@ -19,4 +23,11 @@
 </button>
 
 </body>
+<div>
+    {% block footer %}
+    <footer>
+    Wojciech Jankowski design © 2023
+    </footer>
+    {% endblock %}
+</div>
 </html>
