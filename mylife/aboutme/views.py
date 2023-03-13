@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+import time
+
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from .forms import ContactForm
 
 # Create your views here.
 
@@ -13,7 +16,17 @@ def education(request):
     return render(request=request, template_name="aboutme/education.html")
 
 def contact(request):
-    return render(request=request, template_name="aboutme/contact.html")
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            # Wyślij maila, zapisz do pliku, zapisz do bazy
+            return redirect("thanks")
+    else:
+        form = ContactForm()
+
+    ctx = {"form": form}
+    return render(request=request, template_name="aboutme/contact.html", context=ctx)
 
 def skills(request):
     return render(request=request, template_name="aboutme/skills.html")
@@ -26,4 +39,8 @@ def interests(request):
 
 def blog(request):
     return render(request=request, template_name="aboutme/blog.html")
+
+def thanks(request):
+    return render(request=request, template_name="aboutme/thanks.html")
+
 

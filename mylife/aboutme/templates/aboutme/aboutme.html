@@ -13,6 +13,18 @@
 {% include "aboutme/header_menu.html" %}
 </header>
 {% endblock %}
+{% block main_content %}
+<div class="container">
+    <p>I am a beginner Python programmer who wants to gain new skills and experience in the IT industry. I have analytical skills and thanks to my previous experience I can work well in a team. I gain my knowledge on online courses, e.g. Udemy, from industry literature, to later check it by solving tasks on Codewars.
+</p>
+    <p>I am motivated by the possibility of personal development and the new challenges that I am looking forward to.
+</p>
+</div>
+<button class="button">
+    <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
+</button>
+
+{% endblock %}
 
 {% block footer %}
 <footer>
