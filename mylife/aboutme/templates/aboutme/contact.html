@@ -4,28 +4,28 @@
 
 {% block head_title %} Contact {% endblock %}
 {% block header %}
-    <div class="vertical">
-        <h1 class="page_name">Contact</h1>
-        <img id="face" src="{% static 'aboutme/images/face.png' %}">
-{% include "aboutme/left_menu.html" %}
-    </div>
-    <header>
-        {% include "aboutme/header_menu.html" %}
-    </header>
+<div class="vertical">
+    <h1 class="page_name">Contact</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
+    {% include "aboutme/header_menu.html" %}
+</header>
 {% endblock %}
 
 {% block main_content %}
 <div class="container">
-<form method="POST" novalidate>
-    <table>
-        {% csrf_token %}
-{{ form }}
-   <tr><td><input type="submit" value="Send"></td></tr>
+    <form method="POST" novalidate>
+        <table style="text-align: left;">
+            {% csrf_token %}
+            {{ form }}
+            <tr>
+                <td><input type="submit" value="Send"></td>
+            </tr>
         </table>
     </form>
 </div>
-<button class="button">
-    <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
-</button>
+<a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
 
 {% endblock %}

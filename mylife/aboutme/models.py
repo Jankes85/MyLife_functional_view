@@ -13,33 +13,34 @@ class Education(models.Model):
     class Meta:
         verbose_name = "School"
         verbose_name_plural = "Schools"
-        ordering = ("end_date",)
+        ordering = ['-pk']
 
 
 class Course(models.Model):
     school_name = models.CharField(max_length=50)
     course_name = models.CharField(max_length=100)
-    start_date = models.DateField()
-    end_date = models.DateField()
-    certificate = models.CharField(max_length=3, choices=(("yes", "Yes"), ("no", "No")))
+    end_date = models.DateField(null=True, blank=True)
+    certificate = models.CharField(
+        max_length=3, choices=(("yes", "Yes"), ("no", "No")))
     certificate_link = models.CharField(max_length=100, blank=True)
 
     class Meta:
         verbose_name = "Course"
         verbose_name_plural = "Courses"
-        ordering = ("end_date",)
+        ordering = ['-pk']
 
 
 class Book(models.Model):
     author_name = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     end_date = models.DateField()
-    recomendation = models.CharField(max_length=3, choices=(("yes", "Yes"), ("no", "No")))
+    recomendation = models.CharField(
+        max_length=3, choices=(("yes", "Yes"), ("no", "No")))
 
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
-        ordering = ("end_date",)
+        ordering = ['-pk']
 
 
 class Project(models.Model):
@@ -56,21 +57,26 @@ class Project(models.Model):
 class Experience(models.Model):
     employee_name = models.CharField(max_length=30)
     workplace = models.CharField(max_length=50)
+    position = models.CharField(max_length=30)
     start_date = models.DateField()
-    end_date = models.DateField(blank=True)
+    end_date = models.DateField(null=True, blank=True)
     duties = models.TextField()
 
     class Meta:
         verbose_name = "Experience"
         verbose_name_plural = "Experiences"
-        ordering = ("end_date",)
+        ordering = ['-pk']
+
+    def __str__(self):
+        return f"{self.employee_name} {self.workplace} {self.position} {self.start_date} {self.end_date} {self.duties}"
 
 
 class Skill(models.Model):
     skill_name = models.CharField(max_length=30)
-    skill_type = models.CharField(max_length=1, choices=(("t", "Technical"), ("s", "Soft")))
+    skill_type = models.CharField(
+        max_length=1, choices=(("t", "Technical"), ("s", "Soft")))
     skill_level = models.CharField(max_length=1, blank=True, choices=(("b", "Basic"), ("a", "Advanced"),
-                                ("i", "Intermediate"), ("j", "Junior"), ("m", "Mid"), ("s", "Senior")))
+                                                                      ("i", "Intermediate"), ("j", "Junior"), ("m", "Mid"), ("s", "Senior")))
 
     class Meta:
         verbose_name = "Skill"

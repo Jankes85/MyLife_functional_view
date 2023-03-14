@@ -14,35 +14,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-image: url('{% static 'aboutme/images/background.jpg' %}')";>
-{% block header %}
+<body style="background-image: url('{% static 'aboutme/images/background.jpg' %}')" ;>
+    {% block header %}
     <header>
-    <div class="vertical">
-        <h1 class="page_name">Site Title</h1>
-        <img id="face" src="{% static 'aboutme/images/face.png' %}">
-{% include "aboutme/left_menu.html" %}
+        <div class="vertical">
+            <h1 class="page_name">Site Title</h1>
+            <img id="face" src="{% static 'aboutme/images/face.png' %}">
+            {% include "aboutme/left_menu.html" %}
 
-    </div>
-{% include "aboutme/header_menu.html" %}
+        </div>
+        {% include "aboutme/header_menu.html" %}
     </header>
 
-{% endblock %}
+    {% endblock %}
 
-{% block main_content %}
+    {% block main_content %}
 
-<div class="container"></div>
+    <div class="container"></div>
 
-<button class="button">
     <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
-</button>
 
-{% endblock %}
+    {% endblock %}
 </body>
 <div>
     {% block footer %}
     <footer>
-    Wojciech Jankowski design © 2023
+        Wojciech Jankowski design © 2023
     </footer>
     {% endblock %}
 </div>
+
 </html>

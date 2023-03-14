@@ -2,12 +2,15 @@ from django.contrib import admin
 from . import models
 
 # Register your models here.
+
+
 class EducationAdmin(admin.ModelAdmin):
-    list_display = ("school_name", "course_name", "blocks", "start_date", "end_date", "degree")
+    list_display = ("school_name", "course_name", "blocks",
+                    "start_date", "end_date", "degree")
 
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ("school_name", "course_name", "start_date", "end_date", "certificate")
+    list_display = ("school_name", "course_name", "end_date", "certificate")
 
 
 class BookAdmin(admin.ModelAdmin):
@@ -19,7 +22,8 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 class ExperienceAdmin(admin.ModelAdmin):
-    list_display = ("employee_name", "workplace", "start_date", "end_date", "duties")
+    list_display = ("employee_name", "workplace", "position",
+                    "start_date", "end_date", "duties")
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -32,6 +36,7 @@ class LanguageAdmin(admin.ModelAdmin):
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ("title", "note", "creation_datetime", "photo")
+
 
 admin.site.register(models.Education, EducationAdmin)
 admin.site.register(models.Course, CourseAdmin)

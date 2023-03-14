@@ -23,8 +23,7 @@ h1 {
 header {
     margin-top: 100px;
     margin-left: 250px;
-    margin-right: 110px;
-    position: absolute;
+    margin-right: 210px;
     top: 50;
     padding: 0%;
     position: relative;
@@ -38,6 +37,7 @@ nav {
 
 .vertical {
     position: absolute;
+    position: fixed;
     height: 100%;
     width: 250px;
     top: 0;
@@ -52,7 +52,7 @@ nav {
 }
 
 #face{
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 15px;
     max-width: 220px;
     height:auto;
@@ -104,12 +104,46 @@ padding: 20px;
 }
 
 .container {
-position: fixed;
-width: 62%;
+width: 65%;
 height: auto;
 margin-left:280px;
 margin-top:40px;
 }
+
+
+.errorlist{
+color: red;
+font-size:0.8rem;
+margin:0;
+padding:0;
+}
+
+.required label:after{
+content: "*";
+}
+
+#data {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10%;
+}
+
+#data td, #data th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#data tr:nth-child(even){background-color: #f2f2f2;}
+
+#data tr:hover {background-color: #ddd;}
+
+#data th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkgrey;
+  color: white;
+  }
 
 input[type=submit] {
     padding:5px 15px;
@@ -117,7 +151,6 @@ input[type=submit] {
     border: 2px solid white;
     border-radius: 20%;
     cursor:pointer;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     font-weight: 600;
     transition: all 0.25s;
@@ -128,11 +161,3 @@ input[type=submit]:hover {
     color: lightgrey;
 }
 
-.errorlist{
-color: red;
-font-size:0.8rem;
-margin:0;
-padding:0;
-}
-
-.required label:after{content: "*"}

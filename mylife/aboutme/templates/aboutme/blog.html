@@ -4,12 +4,12 @@
 
 {% block head_title %} Blog {% endblock %}
 {% block header %}
-    <div class="vertical">
-        <h1 class="page_name">Blog</h1>
-        <img id="face" src="{% static 'aboutme/images/face.png' %}">
-{% include "aboutme/left_menu.html" %}
-    </div>
-    <header>
-{% include "aboutme/header_menu.html" %}
-    </header>
+<div class="vertical">
+    <h1 class="page_name">Blog</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
+    {% include "aboutme/header_menu.html" %}
+</header>
 {% endblock %}

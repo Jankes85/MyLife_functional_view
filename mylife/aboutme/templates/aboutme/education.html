@@ -4,14 +4,93 @@
 
 {% block head_title %} Education {% endblock %}
 {% block header %}
-    <div class="vertical">
-        <h1 class="page_name">Education</h1>
-        <img id="face" src="{% static 'aboutme/images/face.png' %}">
-{% include "aboutme/left_menu.html" %}
-    </div>
-    <header>
+<div class="vertical">
+    <h1 class="page_name">Education</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
 
-{% include "aboutme/header_menu.html" %}
+    {% include "aboutme/header_menu.html" %}
 
-    </header>
+</header>
+{% endblock %}
+{% block main_content %}
+<div class="container">
+    <h2>Education</h2>
+    <table id="data">
+        <thead>
+            <tr>
+                <th>Educational institution</th>
+                <th>Course name</th>
+                <th>Blocks</th>
+                <th>Period of study</th>
+                <th>Degree</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for edu in education %}
+            <tr>
+                <td>{{ edu.school_name }}</td>
+                <td>{{ edu.course_name }}</td>
+                <td>{{ edu.blocks }}</td>
+                <td style="text-align: center;">{{ edu.start_date|date:"Y-m" }} - {{ edu.end_date|date:"Y-m" }}</td>
+                <td>{{ edu.degree }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <h2>Courses</h2>
+    <table id="data">
+        <thead>
+            <tr>
+                <th>Educational institution</th>
+                <th>Course name</th>
+                <th>Course end date</th>
+                <th>Certificate</th>
+                <th>Certificate confirmation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.school_name }}</td>
+                <td>{{ course.course_name }}</td>
+                <td style="text-align: center;">{{ course.end_date|date:"Y-m" }}</td>
+                <td style="text-align: center;">{{ course.certificate }}</td>
+                <td style="text-align: center;">{% if course.certificate_link %} <a
+                        href="{{ course.certificate_link }}">
+                        Certificate</a> {% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <h2>IT industry literature</h2>
+    <table id="data">
+        <thead>
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Reading end date</th>
+                <th>Recommendation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.author_name }}</td>
+                <td>{{ book.title }}</td>
+                <td style="text-align: center;">{{ book.end_date|date:"Y-m" }}</td>
+                <td style="text-align: center;">{{ book.recomendation }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
+
+
 {% endblock %}

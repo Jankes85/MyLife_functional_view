@@ -1,13 +1,14 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
+
 class ContactForm(forms.Form):
     error_css_class = "test_error"
     required_css_class = "required"
 
     first_name = forms.CharField(max_length=30, label="First name")
     last_name = forms.CharField(max_length=50, label="Last name")
-    email = forms.EmailField(label="E-mail adress")
+    email = forms.EmailField(label="Email adress")
     subject = forms.CharField(max_length=200, label="Subject")
     message = forms.CharField(widget=forms.Textarea, label="Message")
 
