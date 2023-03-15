@@ -5,16 +5,16 @@ from . import models
 
 
 class EducationAdmin(admin.ModelAdmin):
-    list_display = ("school_name", "course_name", "blocks",
+    list_display = ("school_name", "course_name", "competences",
                     "start_date", "end_date", "degree")
 
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ("school_name", "course_name", "end_date", "certificate")
+    list_display = ("school_name", "course_name", "end_date", "competences")
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ("author_name", "title", "end_date", "recomendation")
+    list_display = ("author_name", "title", "end_date", "competences")
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -23,7 +23,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = ("employee_name", "workplace", "position",
-                    "start_date", "end_date", "duties")
+                    "start_date", "end_date", "duties", "competences")
 
 
 class SkillAdmin(admin.ModelAdmin):

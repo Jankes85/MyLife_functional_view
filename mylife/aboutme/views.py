@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm
-from .models import Experience, Education, Course, Book, Skill
+from .models import Experience, Education, Course, Book, Skill, Language
 from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
@@ -51,11 +51,12 @@ def contact(request):
 
 
 def skills(request):
-    skills = Skill.objects.all()
     skills_s = Skill.objects.filter(skill_type="s")
     skills_t = Skill.objects.filter(skill_type="t")
+    languages = Language.objects.all()
     ctx = {"skills_s": skills_s,
-           "skills_t": skills_t}
+           "skills_t": skills_t,
+           "languages": languages}
     return render(request=request, template_name="aboutme/skills.html", context=ctx)
 
 
@@ -65,13 +66,69 @@ def experience(request):
     return render(request=request, template_name="aboutme/experience.html", context=ctx)
 
 
-def interests(request):
-    return render(request=request, template_name="aboutme/interests.html")
-
-
 def blog(request):
     return render(request=request, template_name="aboutme/blog.html")
 
 
 def thanks(request):
     return render(request=request, template_name="aboutme/thanks.html")
+
+
+def python(request):
+    education = Education.objects.filter(competences__icontains="python")
+    courses = Course.objects.filter(competences__icontains="python")
+    books = Book.objects.filter(competences__icontains="python")
+    ctx = {"education": education,
+           "courses": courses,
+           "books": books}
+    return render(request=request, template_name="aboutme/python.html", context=ctx)
+
+
+def sql(request):
+    education = Education.objects.filter(competences__icontains="sql")
+    courses = Course.objects.filter(competences__icontains="sql")
+    books = Book.objects.filter(competences__icontains="sql")
+    ctx = {"education": education,
+           "courses": courses,
+           "books": books}
+    return render(request=request, template_name="aboutme/sql.html", context=ctx)
+
+
+def django(request):
+    education = Education.objects.filter(competences__icontains="django")
+    courses = Course.objects.filter(competences__icontains="django")
+    books = Book.objects.filter(competences__icontains="django")
+    ctx = {"education": education,
+           "courses": courses,
+           "books": books}
+    return render(request=request, template_name="aboutme/django.html", context=ctx)
+
+
+def html(request):
+    education = Education.objects.filter(competences__icontains="html")
+    courses = Course.objects.filter(competences__icontains="html")
+    books = Book.objects.filter(competences__icontains="html")
+    ctx = {"education": education,
+           "courses": courses,
+           "books": books}
+    return render(request=request, template_name="aboutme/html.html", context=ctx)
+
+
+def css(request):
+    education = Education.objects.filter(competences__icontains="css")
+    courses = Course.objects.filter(competences__icontains="css")
+    books = Book.objects.filter(competences__icontains="css")
+    ctx = {"education": education,
+           "courses": courses,
+           "books": books}
+    return render(request=request, template_name="aboutme/css.html", context=ctx)
+
+
+def js(request):
+    education = Education.objects.filter(competences__icontains="javascript")
+    courses = Course.objects.filter(competences__icontains="javascript")
+    books = Book.objects.filter(competences__icontains="javascript")
+    ctx = {"education": education,
+           "courses": courses,
+           "books": books}
+    return render(request=request, template_name="aboutme/js.html", context=ctx)

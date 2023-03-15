@@ -20,21 +20,21 @@
     <table id="data">
         <thead>
             <tr>
-                <th>Employee name</th>
                 <th>Workplace</th>
                 <th>Position</th>
                 <th>Period of employment</th>
                 <th>Duties</th>
+                <th>Competences</th>
             </tr>
         </thead>
         <tbody>
             {% for exp in experience %}
             <tr>
-                <td>{{ exp.employee_name }}</td>
-                <td>{{ exp.workplace }}</td>
+                <td>{{ exp.employee_name }}, {{ exp.workplace }}</td>
                 <td>{{ exp.position }}</td>
                 <td style="text-align: center;">{{ exp.start_date|date:"Y-m" }} - {{ exp.end_date|date:"Y-m" }}</td>
                 <td>{{ exp.duties }}</td>
+                <td>{{ exp.competences }}</td>
             </tr>
             {% endfor %}
         </tbody>

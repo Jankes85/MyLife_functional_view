@@ -26,20 +26,45 @@
         <tbody>
             {% for skill in skills_t %}
             <tr>
-                <td>{{ skill.skill_name }}</td>
+                <td><a href="{% if skill.skill_name == 'Python' %}
+                               {% url 'python' %}
+                             {% elif skill.skill_name == 'SQL databases' %}
+                               {% url 'sql' %}
+                             {% elif skill.skill_name == 'Django' %}
+                               {% url 'django' %}
+                             {% elif skill.skill_name == 'HTML' %}
+                               {% url 'html' %}
+                             {% elif skill.skill_name == 'CSS' %}
+                               {% url 'css' %}
+                             {% elif skill.skill_name == 'JavaScript' %}
+                               {% url 'js' %}
+                           {% endif %}"> {{ skill.skill_name }} </a></td>
                 <td style="text-align: center;">{{ skill.get_skill_level_display }}</td>
             <tr>
                 {% endfor %}
                 <th>Soft skills</th>
+                <th></th>
+
             </tr>
             {% for skill in skills_s %}
             <tr>
                 <td>{{ skill.skill_name }}</td>
+                <td></td>
+
+            </tr>
+            {% endfor %}
+                <th>Language</th>
+                <th>Language level</th>
+
+            </tr>
+            {% for language in languages %}
+            <tr>
+                <td>{{ language.language_name }}</td>
+                <td style="text-align: center;">{{ language.language_level }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-
 </div>
 
 <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>

@@ -74,6 +74,8 @@ nav {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.25s;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 .button:hover {
@@ -152,8 +154,9 @@ input[type=submit] {
     border-radius: 20%;
     cursor:pointer;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.25s;
+
 
 
 input[type=submit]:hover {

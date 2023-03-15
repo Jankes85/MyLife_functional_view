@@ -5,7 +5,7 @@ from django.db import models
 class Education(models.Model):
     school_name = models.CharField(max_length=50)
     course_name = models.CharField(max_length=100)
-    blocks = models.TextField(blank=True)
+    competences = models.TextField(blank=True)
     start_date = models.DateField()
     end_date = models.DateField(blank=True)
     degree = models.CharField(max_length=30, blank=True,)
@@ -13,15 +13,14 @@ class Education(models.Model):
     class Meta:
         verbose_name = "School"
         verbose_name_plural = "Schools"
-        ordering = ['-pk']
+        ordering = ['-end_date']
 
 
 class Course(models.Model):
     school_name = models.CharField(max_length=50)
     course_name = models.CharField(max_length=100)
     end_date = models.DateField(null=True, blank=True)
-    certificate = models.CharField(
-        max_length=3, choices=(("yes", "Yes"), ("no", "No")))
+    competences = models.CharField(max_length=200)
     certificate_link = models.CharField(max_length=100, blank=True)
 
     class Meta:
@@ -34,13 +33,12 @@ class Book(models.Model):
     author_name = models.CharField(max_length=50)
     title = models.CharField(max_length=100)
     end_date = models.DateField()
-    recomendation = models.CharField(
-        max_length=3, choices=(("yes", "Yes"), ("no", "No")))
+    competences = models.CharField(max_length=200)
 
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
-        ordering = ['-pk']
+        ordering = ['-end_date']
 
 
 class Project(models.Model):
@@ -61,6 +59,8 @@ class Experience(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     duties = models.TextField()
+    competences = models.CharField(max_length=200)
+
 
     class Meta:
         verbose_name = "Experience"
