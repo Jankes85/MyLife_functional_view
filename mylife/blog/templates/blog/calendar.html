@@ -2,10 +2,10 @@
 {% load static %}
 
 
-{% block head_title %} SQL {% endblock %}
+{% block head_title %} Blog {% endblock %}
 {% block header %}
 <div class="vertical">
-    <h1 class="page_name">SQL</h1>
+    <h1 class="page_name">Blog</h1>
     <img id="face" src="{% static 'aboutme/images/face.png' %}">
     {% include "aboutme/left_menu.html" %}
 </div>
@@ -16,11 +16,12 @@
 </header>
 {% endblock %}
 {% block main_content %}
+
 <div class="container">
-    {% include "aboutme/from_where_skills.html" %}
+    <a href="{% url 'calendar' %}?{{ prev_month }}"><button class="next" style="display:inline-block;">Previous Month</button></a>
+	<a href="{% url 'calendar' %}?{{ next_month }}"><button class="next" style="float:right;">Next Month</button></a>
+    {{ calendar }}
 </div>
 
 <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
-
-
 {% endblock %}

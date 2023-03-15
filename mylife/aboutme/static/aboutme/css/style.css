@@ -64,23 +64,40 @@ nav {
     position: fixed;
     bottom: 50px;
     right: 50px;
-    background-color: lightgrey;
+    background-color: darkgrey;
     border: 2px solid white;
     border-radius: 20%;
     width: 120px;
     height: 50px;
     font-size: 20px;
-    color: black;
+    color: white;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.25s;
     font-family: 'Open Sans', sans-serif;
-
 }
 
 .button:hover {
+    background-color: lightgrey;
+    color: black;
+}
+
+.next {
     background-color: darkgrey;
-    color: lightgrey;
+    border: 1px solid white;
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.next:hover {
+    background-color: lightgrey;
+    color: black;
 }
 
 .menu {
@@ -147,20 +164,67 @@ content: "*";
   color: white;
   }
 
+.calendar {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10%;
+}
+
+.calendar td, .calendar th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.calendar tr:nth-child(even){background-color: #f2f2f2;}
+
+.calendar td:hover {background-color: #ddd;}
+
+.calendar th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkgrey;
+  color: white;
+  }
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+a {
+  color: #17a2b8;
+}
+
+
+
+
+
+
 input[type=submit] {
     padding:5px 15px;
-    background-color: lightgrey;
+    background-color: darkgrey;
     border: 2px solid white;
     border-radius: 20%;
     cursor:pointer;
     border-radius: 5px;
     font-weight: 500;
     transition: all 0.25s;
+    color: white;
+
 
 
 
 input[type=submit]:hover {
-    background-color: darkgrey;
-    color: lightgrey;
+    background-color: lightgrey;
+    color: black;
 }
 

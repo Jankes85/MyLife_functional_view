@@ -13,7 +13,6 @@ urlpatterns = [
     path('skills/css', views.css, name="css"),
     path('skills/js', views.js, name="js"),
     path('experience/', views.experience, name="experience"),
-    path('blog/', views.blog, name="blog"),
     path('thank-you/', views.thanks, name="thanks"),
 
 ]

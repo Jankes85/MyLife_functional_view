@@ -66,10 +66,6 @@ def experience(request):
     return render(request=request, template_name="aboutme/experience.html", context=ctx)
 
 
-def blog(request):
-    return render(request=request, template_name="aboutme/blog.html")
-
-
 def thanks(request):
     return render(request=request, template_name="aboutme/thanks.html")
 
