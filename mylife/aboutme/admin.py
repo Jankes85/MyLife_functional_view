@@ -34,8 +34,7 @@ class LanguageAdmin(admin.ModelAdmin):
     list_display = ("language_name", "language_level")
 
 
-class BlogAdmin(admin.ModelAdmin):
-    list_display = ("title", "note", "creation_datetime", "photo")
+
 
 
 admin.site.register(models.Education, EducationAdmin)
@@ -45,4 +44,3 @@ admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Experience, ExperienceAdmin)
 admin.site.register(models.Skill, SkillAdmin)
 admin.site.register(models.Language, LanguageAdmin)
-admin.site.register(models.Blog, BlogAdmin)

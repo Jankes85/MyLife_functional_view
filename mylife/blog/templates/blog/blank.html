@@ -1,0 +1,17 @@
+{% extends "aboutme/base.html" %}
+{% load static %}
+
+
+{% block head_title %} Blank {% endblock %}
+{% block header %}
+<div class="vertical">
+    <h1 class="page_name">Blank</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
+
+    {% include "aboutme/header_menu.html" %}
+
+</header>
+{% endblock %}

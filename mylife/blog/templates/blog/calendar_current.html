@@ -1,0 +1,34 @@
+{% extends "aboutme/base.html" %}
+{% load static %}
+
+
+{% block head_title %}Blog{% endblock %}
+{% block header %}
+<div class="vertical">
+    <h1 class="page_name">Blog</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
+
+    {% include "aboutme/header_menu.html" %}
+
+</header>
+{% endblock %}
+
+{% block main_content %}
+<div class="container">
+
+<a href="http://127.0.0.1:8000/blog/calendar_current/{{ prev }}">
+    <button class="next" style="display:inline-block;">Previous Month</button></a>
+<a href="http://127.0.0.1:8000/blog/calendar_current/{{ next }}">
+    <button class="next" style="float:right;">Next Month</button></a>
+    <div class="cal">
+    {{ cal|safe}}
+        {{ days }}
+        {{ blog }}
+
+        </div>
+    <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
+
+{% endblock %}

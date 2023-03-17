@@ -92,12 +92,3 @@ class Language(models.Model):
         verbose_name_plural = "Languages"
 
 
-class Blog(models.Model):
-    title = models.CharField(max_length=100)
-    note = models.TextField()
-    creation_datetime = models.DateTimeField(auto_now_add=True)
-    photo = models.ImageField(blank=True)
-
-    class Meta:
-        verbose_name = "Blog"
-        verbose_name_plural = "Blog"

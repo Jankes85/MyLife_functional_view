@@ -205,9 +205,44 @@ a {
 }
 
 
+.month {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+.month td, .month th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
 
+.month tr:nth-child(even){background-color: #f2f2f2;}
 
+.month td:hover {background-color: #ddd;}
+
+.month th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkgrey;
+  color: white;
+  }
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+a {
+  color: #17a2b8;
+}
 
 input[type=submit] {
     padding:5px 15px;
