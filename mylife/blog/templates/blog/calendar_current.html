@@ -18,17 +18,9 @@
 
 {% block main_content %}
 <div class="container">
+ {{ blog.entry_date }}
 
-<a href="http://127.0.0.1:8000/blog/calendar_current/{{ prev }}">
-    <button class="next" style="display:inline-block;">Previous Month</button></a>
-<a href="http://127.0.0.1:8000/blog/calendar_current/{{ next }}">
-    <button class="next" style="float:right;">Next Month</button></a>
-    <div class="cal">
-    {{ cal|safe}}
-        {{ days }}
-         {{ blog }}
-
+      {% include 'blog/calendar_block.html' %}
         </div>
-    <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
 
 {% endblock %}

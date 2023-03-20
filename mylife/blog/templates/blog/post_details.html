@@ -1,0 +1,38 @@
+{% extends "aboutme/base.html" %}
+{% load static %}
+
+
+{% block head_title %} Blog {% endblock %}
+{% block header %}
+<div class="vertical">
+    <h1 class="page_name">Blog</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
+
+    {% include "aboutme/header_menu.html" %}
+
+</header>
+{% endblock %}
+{% block main_content %}
+<div class="container">
+<table id="data">
+    <thead>
+      <tr><th>Title</th><th>Note</th><th>Entry date</th><th>Categories</th></tr>
+      </thead>
+      <tbody>
+         <tr>
+             <td>{{ post.title }}</td>
+             <td>{{ post.note }}</td>
+             <td>{{ post.entry_date }} </a> </td>
+             <td>{{ post.category }}</td>
+         </tr>
+      </tbody>
+
+  </table>
+
+</div>
+    <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
+
+{% endblock %}

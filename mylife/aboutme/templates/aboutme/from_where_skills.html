@@ -1,5 +1,22 @@
-  {% load static %}
+{% extends "aboutme/base.html" %}
+{% load static %}
 
+
+{% block head_title %} {{ skill }} {% endblock %}
+{% block header %}
+<div class="vertical">
+    <h1 class="page_name">{{ skill }}</h1>
+    <img id="face" src="{% static 'aboutme/images/face.png' %}">
+    {% include "aboutme/left_menu.html" %}
+</div>
+<header>
+
+    {% include "aboutme/header_menu.html" %}
+
+</header>
+{% endblock %}
+{% block main_content %}
+<div class="container">
 
    {% if education.all  %}
     <h2>Education</h2>
@@ -67,3 +84,9 @@
         </tbody>
     </table>
     {% endif %}
+    </div>
+
+<a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
+
+
+{% endblock %}

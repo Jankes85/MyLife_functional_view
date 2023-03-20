@@ -30,6 +30,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data["subject"]
+            request.session["first_name"] = form.cleaned_data["first_name"]
             body = {
                 "first_name": form.cleaned_data["first_name"],
                 "last_name": form.cleaned_data["last_name"],
@@ -67,7 +68,8 @@ def experience(request):
 
 
 def thanks(request):
-    return render(request=request, template_name="aboutme/thanks.html")
+    ctx = {"first_name": request.session["first_name"]}
+    return render(request=request, template_name="aboutme/thanks.html", context=ctx)
 
 
 def python(request):
@@ -76,8 +78,10 @@ def python(request):
     books = Book.objects.filter(competences__icontains="python")
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
-    return render(request=request, template_name="aboutme/python.html", context=ctx)
+           "books": books,
+           "skill": "Python",
+           }
+    return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
 
 def sql(request):
@@ -86,8 +90,10 @@ def sql(request):
     books = Book.objects.filter(competences__icontains="sql")
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
-    return render(request=request, template_name="aboutme/sql.html", context=ctx)
+           "books": books,
+           "skill": "SQL",
+           }
+    return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
 
 def django(request):
@@ -96,8 +102,10 @@ def django(request):
     books = Book.objects.filter(competences__icontains="django")
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
-    return render(request=request, template_name="aboutme/django.html", context=ctx)
+           "books": books,
+           "skill": "Django",
+           }
+    return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
 
 def html(request):
@@ -106,8 +114,10 @@ def html(request):
     books = Book.objects.filter(competences__icontains="html")
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
-    return render(request=request, template_name="aboutme/html.html", context=ctx)
+           "books": books,
+           "skill": "HTML",
+           }
+    return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
 
 def css(request):
@@ -116,8 +126,10 @@ def css(request):
     books = Book.objects.filter(competences__icontains="css")
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
-    return render(request=request, template_name="aboutme/css.html", context=ctx)
+           "books": books,
+           "skill": "CSS",
+           }
+    return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
 
 def js(request):
@@ -126,5 +138,7 @@ def js(request):
     books = Book.objects.filter(competences__icontains="javascript")
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
-    return render(request=request, template_name="aboutme/js.html", context=ctx)
+           "books": books,
+           "skill": "JavaScript",
+           }
+    return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
