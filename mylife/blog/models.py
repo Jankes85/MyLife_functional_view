@@ -5,7 +5,7 @@ from django.db import models
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     note = models.TextField()
-    entry_date = models.DateField()
+    entry_date = models.DateField(auto_now=False)
     category = models.CharField(max_length=1, choices=(("p", "programming"), ("i", "interests"), ("l", "life")))
 
     class Meta:
