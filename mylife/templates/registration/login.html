@@ -2,10 +2,10 @@
 {% load static %}
 
 
-{% block head_title %} Contact {% endblock %}
+{% block head_title %} Login {% endblock %}
 {% block header %}
 <div class="vertical">
-    <h1 class="page_name">Contact</h1>
+    <h1 class="page_name">Login</h1>
     <img id="face" src="{% static 'aboutme/images/face.png' %}">
     {% include "aboutme/left_menu.html" %}
 </div>
@@ -13,19 +13,25 @@
     {% include "aboutme/header_menu.html" %}
 </header>
 {% endblock %}
-
 {% block main_content %}
 <div class="container">
-    <form method="POST" novalidate>
-        <table id="data" style="width: 550px">
-            {% csrf_token %}
-            {{ form }}
-            <tr style="text-align: center;"><td><input class="next" type="submit" value="Send"
+<h1> Login form </h1>
+<form method="POST" novalidate>
+    {% csrf_token %}
+    <table id="data" style="table-layout:fixed;width: 500px">
+        {{ form }}
+        <tr style="text-align: center;"><td><input class="next" type="submit" value="Login"
                                                        style="border-radius: 0%;"></td>
-            </tr>
-        </table>
-    </form>
+        </tr>
+    </table>
+</form>
 </div>
 <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
 
+{% endblock %}
+
+{% block footer %}
+<footer>
+    Wojciech Jankowski design © 2023
+</footer>
 {% endblock %}

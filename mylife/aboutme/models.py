@@ -76,7 +76,7 @@ class Skill(models.Model):
     skill_type = models.CharField(
         max_length=1, choices=(("t", "Technical"), ("s", "Soft")))
     skill_level = models.CharField(max_length=1, blank=True, choices=(("b", "Basic"), ("a", "Advanced"),
-                                                                      ("i", "Intermediate"), ("j", "Junior"), ("m", "Mid"), ("s", "Senior")))
+                                            ("i", "Intermediate"), ("j", "Junior"), ("m", "Mid"), ("s", "Senior")))
 
     class Meta:
         verbose_name = "Skill"

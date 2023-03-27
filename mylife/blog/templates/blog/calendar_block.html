@@ -29,17 +29,18 @@
         <br>
         <a href="{% url 'post_create' %}">
     <button class="next" style="display:inline-block;">Add post</button></a>
+        <a href="{% url 'post_search' %}">
+    <button class="next" style="display:inline-block;">Search post</button></a>
         <br>
-        BLOG_J
-        {{ blog_j }}
         <br>
-                BLOG
+        BLOG
         {{ blog }}
+        <br>
         <br>
         BLOG_L
         {{ blog_l }}
         <br>
-
+        <br>
         BLOG_DICT
         {{ date_blog_dict }}
     <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>

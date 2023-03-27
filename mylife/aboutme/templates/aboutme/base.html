@@ -15,6 +15,17 @@
 </head>
 
 <body style="background-image: url('{% static 'aboutme/images/background.jpg' %}')" ;>
+{% block sidebar %}
+    <div style="text-align: right; margin-right:10px; margin-top:10px">
+{% if user.is_authenticated %}
+Login: {{ user.username }}
+  <br>
+  <a href="{% url 'logout' %}">Wyloguj</a>
+{% else %}
+  <a href="{% url 'login' %}">Zajoguj</a>
+{% endif %}
+</div>
+        {% endblock %}
     {% block header %}
     <header>
         <div class="vertical">
@@ -24,11 +35,9 @@
         </div>
         {% include "aboutme/header_menu.html" %}
     </header>
-
     {% endblock %}
 
     {% block main_content %}
-
     <div class="container"></div>
 
 <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>

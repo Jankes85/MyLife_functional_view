@@ -1,8 +1,7 @@
 {% extends "aboutme/base.html" %}
 {% load static %}
 
-
-{% block head_title %} Blog {% endblock %}
+{% block head_title %}Blog{% endblock %}
 {% block header %}
 <div class="vertical">
     <h1 class="page_name">Blog</h1>
@@ -15,18 +14,15 @@
 
 </header>
 {% endblock %}
+
 {% block main_content %}
 <div class="container">
-
-    <h2>Create a post:</h2>
+    <h2>Czy jesteś pewien, że chcesz skasować</h2>
 <form method="POST" novalidate>
     {% csrf_token %}
-<table id="data">
-        {{ form }}
-        <tr style="text-align: center;"><td><input class="next" type="submit" value="Save"></td></tr>
-    </table>
+     <input class="next" type="submit" value="Delete" style="border-radius: 0%;">
 </form>
-    <a href="{% url 'calendar_current' %}">
+                    <a href="{% url 'post_detail' post.id %}">
     <button class="next" style="float:right;">Cancel</button></a>
 </div>
     <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>
