@@ -2,18 +2,6 @@
 {% load static %}
 
 
-{% block head_title %} Contact {% endblock %}
-{% block header %}
-<div class="vertical">
-    <h1 class="page_name">Contact</h1>
-    <img id="face" src="{% static 'aboutme/images/face.png' %}">
-    {% include "aboutme/left_menu.html" %}
-</div>
-<header>
-    {% include "aboutme/header_menu.html" %}
-</header>
-{% endblock %}
-
 {% block main_content %}
 <div class="container">
     <h2>Thank you {{ first_name }} for sending the message. I will try to answer as soon as possible </h2>

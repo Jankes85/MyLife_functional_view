@@ -2,25 +2,25 @@
 <div style="position: sticky;">
      <nav>
           <div>
-               <a href="{% url 'about_me' %}"><button class="menu">
+               <a href="{% url 'aboutme:about_me' %}"><button class="menu">
                          <img src="{% static 'aboutme/images/me.png' %}"
                               style="width:29px;height:auto;margin-right:5px;"> About me
                     </button></a>
           </div>
           <div>
-               <a href="{% url 'education' %}"><button class="menu">
+               <a href="{% url 'aboutme:education' %}"><button class="menu">
                          <img src="{% static 'aboutme/images/edu.png' %}"
                               style="width:28px;height:auto;margin-right:5px;"> Education
                     </button></a>
           </div>
           <div>
-               <a href="{% url 'experience' %}"><button class="menu">
+               <a href="{% url 'aboutme:experience' %}"><button class="menu">
                          <img src="{% static 'aboutme/images/work.png' %}"
                               style="width:27px;height:auto;margin-right:5px;"> Experience
                     </button></a>
           </div>
           <div>
-               <a href="{% url 'skills' %}"><button class="menu">
+               <a href="{% url 'aboutme:skills' %}"><button class="menu">
                          <img src="{% static 'aboutme/images/skills.png' %}"
                               style="width:27px;height:auto;margin-right:5px;"> Skills
                     </button></a>
@@ -32,7 +32,7 @@
                     </button></a>
           </div>
           <div>
-               <a href="{% url 'contact' %}"><button class="menu">
+               <a href="{% url 'aboutme:contact' %}"><button class="menu">
                          <img src="{% static 'aboutme/images/contact.png' %}"
                               style="width:28px;height:auto;margin-right:5px;"> Contact
                     </button></a>

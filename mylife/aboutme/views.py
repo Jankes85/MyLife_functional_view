@@ -12,7 +12,8 @@ def intro(request):
 
 
 def about_me(request):
-    return render(request=request, template_name="aboutme/aboutme.html")
+    ctx = {'site_name': "About me"}
+    return render(request=request, template_name="aboutme/aboutme.html", context=ctx)
 
 
 def education(request):
@@ -21,7 +22,8 @@ def education(request):
     books = Book.objects.all()
     ctx = {"education": education,
            "courses": courses,
-           "books": books}
+           "books": books,
+           'site_name': "Education"}
     return render(request=request, template_name="aboutme/education.html", context=ctx)
 
 
@@ -40,14 +42,17 @@ def contact(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
+                send_mail(subject, message, 'admin@example.com',
+                          ['admin@example.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect("thanks")
+            return redirect("aboutme:thanks")
     else:
         form = ContactForm()
 
-    ctx = {"form": form}
+    ctx = {"form": form,
+           'site_name': "Contact",
+           }
     return render(request=request, template_name="aboutme/contact.html", context=ctx)
 
 
@@ -57,18 +62,21 @@ def skills(request):
     languages = Language.objects.all()
     ctx = {"skills_s": skills_s,
            "skills_t": skills_t,
-           "languages": languages}
+           "languages": languages,
+           'site_name': "Skills"}
     return render(request=request, template_name="aboutme/skills.html", context=ctx)
 
 
 def experience(request):
     experience = Experience.objects.all()
-    ctx = {"experience": experience}
+    ctx = {"experience": experience,
+           'site_name': "Experience"}
     return render(request=request, template_name="aboutme/experience.html", context=ctx)
 
 
 def thanks(request):
-    ctx = {"first_name": request.session["first_name"]}
+    ctx = {"first_name": request.session["first_name"],
+           'site_name': "Contact", }
     return render(request=request, template_name="aboutme/thanks.html", context=ctx)
 
 
@@ -80,6 +88,7 @@ def python(request):
            "courses": courses,
            "books": books,
            "skill": "Python",
+           'site_name': "Python",
            }
     return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
@@ -92,6 +101,7 @@ def sql(request):
            "courses": courses,
            "books": books,
            "skill": "SQL",
+           'site_name': "SQL",
            }
     return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
@@ -104,6 +114,7 @@ def django(request):
            "courses": courses,
            "books": books,
            "skill": "Django",
+           'site_name': "Django",
            }
     return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
@@ -116,6 +127,7 @@ def html(request):
            "courses": courses,
            "books": books,
            "skill": "HTML",
+           'site_name': "HTML",
            }
     return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
@@ -128,6 +140,7 @@ def css(request):
            "courses": courses,
            "books": books,
            "skill": "CSS",
+           'site_name': "CSS",
            }
     return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)
 
@@ -140,5 +153,6 @@ def js(request):
            "courses": courses,
            "books": books,
            "skill": "JavaScript",
+           'site_name': "JavaScript",
            }
     return render(request=request, template_name="aboutme/from_where_skills.html", context=ctx)

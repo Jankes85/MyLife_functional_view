@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "aboutme",
     "blog",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -126,5 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_REDIRECT_URL = 'about_me'
-LOGOUT_REDIRECT_URL = 'about_me'
+LOGIN_REDIRECT_URL = 'aboutme:about_me'
+LOGOUT_REDIRECT_URL = 'aboutme:about_me'

@@ -2,26 +2,14 @@
 {% load static %}
 
 
-{% block head_title %} Contact {% endblock %}
-{% block header %}
-<div class="vertical">
-    <h1 class="page_name">Contact</h1>
-    <img id="face" src="{% static 'aboutme/images/face.png' %}">
-    {% include "aboutme/left_menu.html" %}
-</div>
-<header>
-    {% include "aboutme/header_menu.html" %}
-</header>
-{% endblock %}
-
 {% block main_content %}
 <div class="container">
     <form method="POST" novalidate>
-        <table id="data" style="width: 550px">
+        <table id="data" style="display: grid">
             {% csrf_token %}
             {{ form }}
-            <tr style="text-align: center;"><td><input class="next" type="submit" value="Send"
-                                                       style="border-radius: 0%;"></td>
+            <tr style="text-align: center;">
+                <td><input class="next" type="submit" value="Send" style="border-radius: 0%;"></td>
             </tr>
         </table>
     </form>

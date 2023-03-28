@@ -1,18 +1,6 @@
 {% extends "aboutme/base.html" %}
 {% load static %}
 
-
-{% block head_title %} Skills {% endblock %}
-{% block header %}
-<div class="vertical">
-    <h1 class="page_name">Skills</h1>
-    <img id="face" src="{% static 'aboutme/images/face.png' %}">
-    {% include "aboutme/left_menu.html" %}
-</div>
-<header>
-    {% include "aboutme/header_menu.html" %}
-</header>
-{% endblock %}
 {% block main_content %}
 <div class="container">
     <h2>Competences</h2>
@@ -27,17 +15,17 @@
             {% for skill in skills_t %}
             <tr>
                 <td><a href="{% if skill.skill_name == 'Python' %}
-                               {% url 'python' %}
+                               {% url 'aboutme:python' %}
                              {% elif skill.skill_name == 'SQL databases' %}
-                               {% url 'sql' %}
+                               {% url 'aboutme:sql' %}
                              {% elif skill.skill_name == 'Django' %}
-                               {% url 'django' %}
+                               {% url 'aboutme:django' %}
                              {% elif skill.skill_name == 'HTML' %}
-                               {% url 'html' %}
+                               {% url 'aboutme:html' %}
                              {% elif skill.skill_name == 'CSS' %}
-                               {% url 'css' %}
+                               {% url 'aboutme:css' %}
                              {% elif skill.skill_name == 'JavaScript' %}
-                               {% url 'js' %}
+                               {% url 'aboutme:js' %}
                            {% endif %}"> {{ skill.skill_name }} </a></td>
                 <td style="text-align: center;">{{ skill.get_skill_level_display }}</td>
             <tr>
@@ -53,8 +41,8 @@
 
             </tr>
             {% endfor %}
-                <th>Language</th>
-                <th>Language level</th>
+            <th>Language</th>
+            <th>Language level</th>
 
             </tr>
             {% for language in languages %}

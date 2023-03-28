@@ -1,14 +1,15 @@
 from datetime import datetime, date
 
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from calendar import HTMLCalendar
-
 from .forms import BlogModelForm, BlogPostSearch
 from .models import Blog
 
 
+@login_required
 def post_create(request):
     if request.method == "POST":
         form = BlogModelForm(request.POST)
@@ -18,7 +19,10 @@ def post_create(request):
             return redirect('post_detail', id=obj.id)
     else:
         form = BlogModelForm()
-    return render(request, 'blog/create_post.html', {'form': form})
+        ctx = {'form': form,
+               'site_name': "Add post"}
+    return render(request=request, template_name='blog/create_post.html', context=ctx)
+
 
 def post_edit(request, id):
     post = get_object_or_404(Blog, id=id)
@@ -34,17 +38,22 @@ def post_edit(request, id):
             return redirect('post_detail', id=post.id)
     else:
         initial = {'title': post.title, 'note': post.note, 'entry_date': post.entry_date, 'category': post.category,
-                   'author': post.author }
+                   'author': post.author}
         form = BlogModelForm(initial=initial)
-    return render(request, 'blog/create_post.html', {'form': form})
+        ctx = {'form': form,
+               'site_name': "Edit post"}
+    return render(request=request, template_name='blog/create_post.html', context=ctx)
+
 
 def post_delete(request, id):
     post = get_object_or_404(Blog, id=id)
     if request.method == "POST":
         post.delete()
         return redirect('calendar_current')
-    ctx = {"post": post}
-    return render(request, 'blog/post_delete_form.html', ctx)
+    ctx = {"post": post,
+           'site_name': "Blog"}
+    return render(request=request, template_name='blog/post_delete_form.html', context=ctx)
+
 
 def blog_post_search(request):
     blog = Blog.objects.all()
@@ -62,15 +71,18 @@ def blog_post_search(request):
         # if "author" in form.cleaned_data:
         #     blog = Blog.objects.filter(author=form.cleaned_data['author'])
 
-
     form = BlogPostSearch()
-    ctx = {'blog': blog, 'form': form}
-    return render(request, 'blog/search.html', ctx)
+    ctx = {'blog': blog,
+           'form': form,
+           'site_name': "Search"}
+    return render(request=request, template_name='blog/search.html', context=ctx)
+
 
 def post_detail(request, id):
     post = get_object_or_404(Blog, id=id)
-    ctx = {'post': post}
-    return render(request, 'blog/post_details.html', ctx)
+    ctx = {'post': post,
+           'site_name': "Post"}
+    return render(request=request, template_name='blog/post_details.html', context=ctx)
 
 
 def calendar_current(request):
@@ -94,7 +106,6 @@ def calendar_current(request):
 
     date_blog_dict = [{k: v} for k, v in zip(days, blog_l)]
 
-
     prev = None
     next = None
 
@@ -108,7 +119,6 @@ def calendar_current(request):
     elif month == 12:
         next = f"{year + 1}/{month - 11}"
 
-
     ctx = {"year": year,
            "month": month,
            "cal": cal,
@@ -118,8 +128,10 @@ def calendar_current(request):
            "blog": blog,
            "blog_l": blog_l,
            "date_blog_dict": date_blog_dict,
+           'site_name': "Blog",
            }
     return render(request=request, template_name="blog/calendar_current.html", context=ctx)
+
 
 def calendar_change(request, year, month):
     month = month
@@ -139,7 +151,6 @@ def calendar_change(request, year, month):
     for day in days:
         blog_date = Blog.objects.filter(entry_date=day).values()
         blog_l.append(blog_date)
-
 
     date_blog_dict = [{k: v} for k, v in zip(days, blog_l)]
 
@@ -165,6 +176,6 @@ def calendar_change(request, year, month):
            "blog": blog,
            "blog_l": blog_l,
            "date_blog_dict": date_blog_dict,
+           'site_name': "Blog"
            }
     return render(request=request, template_name="blog/calendar_current.html", context=ctx)
-
