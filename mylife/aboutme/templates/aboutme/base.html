@@ -17,7 +17,7 @@
 <body style="background-image: url('{% static 'aboutme/images/background.jpg' %}')" ;>
 
     {% block sidebar %}
-    <div style="text-align: right; margin-right:10px; margin-top:10px, po">
+    <div style="text-align: right; position: fixed; top: 30px; right: 30px;">
         {% if user.is_authenticated %}
         Logged: {{ user.username }}
         <br>
