@@ -11,16 +11,16 @@ from .models import Blog
 
 @login_required
 def post_create(request):
+    ctx = {'form': BlogModelForm(),
+           'site_name': "Add post"}
     if request.method == "POST":
         form = BlogModelForm(request.POST)
         if form.is_valid():
-            pass
             obj = Blog.objects.create(**form.cleaned_data)
             return redirect('post_detail', id=obj.id)
     else:
         form = BlogModelForm()
-        ctx = {'form': form,
-               'site_name': "Add post"}
+
     return render(request=request, template_name='blog/create_post.html', context=ctx)
 
 
@@ -56,20 +56,30 @@ def post_delete(request, id):
 
 
 def blog_post_search(request):
-    blog = Blog.objects.all()
     form = BlogPostSearch(request.GET)
     if form.is_valid():
-        if "search_content" in form.cleaned_data:
-            blog = Blog.objects.filter(Q(title__icontains=form.cleaned_data['search_content']) |
-                                       Q(note__icontains=form.cleaned_data['search_content']))
-        # if "entry_date_from" in form.cleaned_data:
-        #     blog = Blog.objects.filter(entry_date__gte=form.cleaned_data['entry_date_from'])
-        # if "entry_date_to" in form.cleaned_data:
-        #     blog = Blog.objects.filter(entry_date__lte=form.cleaned_data['entry_date_to'])
-        # if "category" in form.cleaned_data:
-        #     blog = Blog.objects.filter(category=form.cleaned_data['category'])
-        # if "author" in form.cleaned_data:
-        #     blog = Blog.objects.filter(author=form.cleaned_data['author'])
+        search_content = form.cleaned_data.get('search_content')
+        if search_content:
+            blog = Blog.objects.all()
+
+            blog = blog.filter(Q(title__icontains=search_content)
+                               | Q(note__icontains=search_content))
+
+        entry_date_from = form.cleaned_data.get('entry_date_from')
+        if entry_date_from:
+            blog = blog.filter(entry_date__gte=entry_date_from)
+
+        entry_date_to = form.cleaned_data.get('entry_date_to')
+        if entry_date_to:
+            blog = blog.filter(entry_date__lte=entry_date_to)
+
+        category = form.cleaned_data.get('category')
+        if category:
+            blog = blog.filter(category__exact=category)
+
+        author = form.cleaned_data.get('author')
+        if author:
+            blog = blog.filter(author__exact=author)
 
     form = BlogPostSearch()
     ctx = {'blog': blog,
