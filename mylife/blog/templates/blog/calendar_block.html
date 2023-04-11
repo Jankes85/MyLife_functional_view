@@ -9,6 +9,7 @@
 <div class="cal">
     {{ cal|safe}}
     <br>
+    {% if blog_l.all %}
     <h2>Blog post list</h2>
     <table id="data">
         <thead>
@@ -20,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for post in blog %}
+            {% for post in blog_l %}
             <tr>
                 <td><a href="{% url 'post_detail' post.id %}">{{ post.title }}</td>
                 <td>{{ post.note }}</td>
@@ -31,21 +32,11 @@
         </tbody>
 
     </table>
+    {% endif %}
     <br>
     <a href="{% url 'post_create' %}">
         <button class="next" style="display:inline-block;">Add post</button></a>
     <a href="{% url 'post_search' %}">
         <button class="next" style="display:inline-block;">Search post</button></a>
-    <br>
-    <br>
-    BLOG
-    {{ blog }}
-    <br>
-    <br>
-    BLOG_L
-    {{ blog_l }}
-    <br>
-    <br>
-    BLOG_DICT
-    {{ date_blog_dict }}
+
     <a href="{% static 'aboutme/files/cv.pdf' %}"><button class="button">CV</button></a>

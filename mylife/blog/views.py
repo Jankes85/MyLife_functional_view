@@ -56,12 +56,11 @@ def post_delete(request, id):
 
 
 def blog_post_search(request):
+    blog = Blog.objects.all()
     form = BlogPostSearch(request.GET)
     if form.is_valid():
         search_content = form.cleaned_data.get('search_content')
         if search_content:
-            blog = Blog.objects.all()
-
             blog = blog.filter(Q(title__icontains=search_content)
                                | Q(note__icontains=search_content))
 
@@ -108,13 +107,8 @@ def calendar_current(request):
             break
 
     blog = Blog.objects.all()
+    blog_l = blog.filter(entry_date__gte=days[0], entry_date__lte=days[-1])
 
-    blog_l = []
-    for day in days:
-        blog_date = Blog.objects.filter(entry_date=day).values()
-        blog_l.append(blog_date)
-
-    date_blog_dict = [{k: v} for k, v in zip(days, blog_l)]
 
     prev = None
     next = None
@@ -137,7 +131,6 @@ def calendar_current(request):
            "days": days,
            "blog": blog,
            "blog_l": blog_l,
-           "date_blog_dict": date_blog_dict,
            'site_name': "Blog",
            }
     return render(request=request, template_name="blog/calendar_current.html", context=ctx)
@@ -156,13 +149,7 @@ def calendar_change(request, year, month):
             break
 
     blog = Blog.objects.all()
-
-    blog_l = []
-    for day in days:
-        blog_date = Blog.objects.filter(entry_date=day).values()
-        blog_l.append(blog_date)
-
-    date_blog_dict = [{k: v} for k, v in zip(days, blog_l)]
+    blog_l = blog.filter(entry_date__gte=days[0], entry_date__lte=days[-1])
 
     prev = None
     next = None
@@ -185,7 +172,6 @@ def calendar_change(request, year, month):
            "days": days,
            "blog": blog,
            "blog_l": blog_l,
-           "date_blog_dict": date_blog_dict,
            'site_name': "Blog"
            }
     return render(request=request, template_name="blog/calendar_current.html", context=ctx)

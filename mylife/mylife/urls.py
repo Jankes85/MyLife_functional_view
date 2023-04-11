@@ -20,10 +20,10 @@ from django.urls import path, include
 from aboutme.views import intro
 
 urlpatterns = [
+    path("", intro),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls')),
-    path("intro/", intro),
     path("about/", include('aboutme.urls')),
     path("blog/", include('blog.urls')),
 
